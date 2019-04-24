@@ -12,7 +12,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if let url = URL(string: "https://blockchain.info/pt/ticker") {
+            let tarefa = URLSession.shared.dataTask(with: url) { (dados, response, error) in
+                
+                if error == nil {
+                    print("sucesso na requisicao")
+                } else {
+                    print("erro na requisicao")
+                }
+            }
+            tarefa.resume()
+        }
+        
     }
 
 
